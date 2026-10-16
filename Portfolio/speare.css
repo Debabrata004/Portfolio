@@ -1,0 +1,385 @@
+/* =========================================
+   ADVANCED 3D TECHNOLOGY SPHERE
+   Navy + Cyan + Violet Theme
+   ========================================= */
+
+.demo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* Main sphere */
+
+.constellation-wrap {
+  --sphere-size: min(620px, 100%);
+
+  position: relative;
+  width: var(--sphere-size);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  overflow: visible;
+  isolation: isolate;
+
+  background: radial-gradient(
+    circle at 50% 48%,
+    #222f53 0%,
+    #101831 43%,
+    #080c1b 72%,
+    #050813 100%
+  );
+
+  border: 1px solid rgba(112, 224, 255, 0.24);
+
+  box-shadow:
+    0 0 45px rgba(73, 179, 255, 0.15),
+    0 0 100px rgba(137, 92, 255, 0.12),
+    inset 0 0 65px rgba(80, 113, 255, 0.1);
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  cursor: grab;
+  box-sizing: border-box;
+}
+
+.constellation-wrap:active {
+  cursor: grabbing;
+}
+
+.tech-node.icon-failed {
+  color: #67E8F9;
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.tech-node.icon-failed::before {
+  content: none;
+}
+
+/* Atmospheric lighting */
+
+.constellation-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 28% 25%,
+      rgba(81, 220, 255, 0.16),
+      transparent 38%
+    ),
+    radial-gradient(
+      ellipse at 76% 76%,
+      rgba(164, 91, 255, 0.17),
+      transparent 40%
+    );
+}
+
+.ambient {
+  position: absolute;
+  width: 44%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(48px);
+  z-index: 0;
+}
+
+.ambient-one {
+  top: 8%;
+  left: 9%;
+  background: rgba(56, 189, 248, 0.18);
+}
+
+.ambient-two {
+  right: 7%;
+  bottom: 8%;
+  background: rgba(168, 85, 247, 0.2);
+}
+
+/* Orbital rings */
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 88%;
+  height: 36%;
+  border: 1px solid rgba(99, 210, 255, 0.25);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transform-style: preserve-3d;
+}
+
+.orbit-one {
+  transform: translate(-50%, -50%) rotate(-24deg);
+}
+
+.orbit-two {
+  width: 72%;
+  height: 88%;
+  border-color: rgba(168, 123, 255, 0.23);
+  transform: translate(-50%, -50%) rotate(24deg);
+}
+
+.orbit-three {
+  width: 42%;
+  height: 94%;
+  border-color: rgba(91, 224, 255, 0.14);
+  transform: translate(-50%, -50%) rotate(-7deg);
+}
+
+/* Technology logo container */
+
+.constellation {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: visible;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  pointer-events: none;
+}
+
+/* Floating technology cards */
+
+.tech-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+  padding: 12px;
+  box-sizing: border-box;
+
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 17px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(34, 48, 79, 0.97),
+    rgba(12, 19, 39, 0.98)
+  );
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform, opacity;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  pointer-events: none;
+}
+
+.tech-node img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Fallback when a logo cannot load */
+
+.tech-node.icon-failed::before {
+  content: "</>";
+  color: #72e7ff;
+  font: 800 16px/1 monospace;
+}
+
+/* Central developer badge */
+
+.center-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  width: 148px;
+  height: 148px;
+  box-sizing: border-box;
+
+  border-radius: 50%;
+  border: 1px solid rgba(123, 218, 255, 0.58);
+
+  background: radial-gradient(
+    circle at 35% 25%,
+    #27365f,
+    #101a39 57%,
+    #080e22 100%
+  );
+
+  box-shadow:
+    0 0 0 10px rgba(95, 170, 255, 0.05),
+    0 0 35px rgba(86, 195, 255, 0.2),
+    inset 0 0 28px rgba(131, 144, 255, 0.14);
+
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.core-halo {
+  position: absolute;
+  inset: -17px;
+  border: 1px solid rgba(105, 213, 255, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.core-mark {
+  color: #f0f6ff;
+  font-family: Arial, sans-serif;
+  font-size: 43px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -3px;
+
+  text-shadow: 0 0 18px rgba(100, 200, 255, 0.38);
+}
+
+.center-core span {
+  color: #b7d9ff;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* Pause and resume control */
+
+.sphere-control {
+  position: absolute;
+  left: 50%;
+  bottom: 17px;
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 37px;
+  padding: 9px 15px;
+
+  border: 1px solid rgba(122, 206, 255, 0.3);
+  border-radius: 30px;
+
+  background: rgba(10, 18, 38, 0.94);
+  color: #e3f6ff;
+
+  font: 600 11px/1.2 Arial, sans-serif;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.sphere-control:hover {
+  background: #21355b;
+  border-color: #5adeff;
+  box-shadow: 0 0 18px rgba(90, 222, 255, 0.14);
+}
+
+.sphere-control:focus-visible {
+  outline: 2px solid #67e8f9;
+  outline-offset: 4px;
+}
+
+.control-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #6ee7ff;
+  box-shadow: 0 0 10px rgba(110, 231, 255, 0.8);
+}
+
+/* Responsive sizing */
+
+@media (max-width: 1000px) {
+  .constellation-wrap {
+    --sphere-size: min(560px, 100%);
+  }
+}
+
+@media (max-width: 600px) {
+  .demo {
+    padding: 8px 0 20px;
+  }
+
+  .constellation-wrap {
+    --sphere-size: min(100%, 430px);
+  }
+
+  .tech-node {
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .center-core {
+    width: 118px;
+    height: 118px;
+  }
+
+  .core-mark {
+    font-size: 35px;
+  }
+
+  .center-core span {
+    font-size: 8px;
+  }
+
+  .sphere-control {
+    bottom: 12px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-node {
+    transition: none;
+  }
+}

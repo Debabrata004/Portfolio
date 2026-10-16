@@ -1,0 +1,393 @@
+/* ============================================
+   PORTFOLIO DESIGN SYSTEM
+   Deep Navy + Electric Cyan + Violet
+   ============================================ */
+
+:root {
+  --page-bg: #0B1020;
+  --card-bg: #151D33;
+  --text: #F1F5F9;
+  --muted: #94A3B8;
+  --accent: #67E8F9;
+  --accent-violet: #A78BFA;
+  --border: rgba(148, 163, 184, 0.18);
+  --font: Georgia, "Times New Roman", serif;
+  --nav-glass: rgba(11, 16, 32, 0.88);
+}
+
+/* ============================================
+   GLOBAL RESET
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Selection color */
+
+::selection {
+  background: rgba(103, 232, 249, 0.25);
+  color: #FFFFFF;
+}
+
+/* Images */
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* ============================================
+   SITE NAVIGATION HEADER
+   ============================================ */
+
+.site-header {
+  position: relative;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  min-height: 50px;
+  padding: 22px 24px 30px;
+
+  background: var(--nav-glass);
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Logo */
+
+.brand {
+  display: block;
+  width: 100px;
+  height: 82px;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+.brand img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.brand:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 12px rgba(103, 232, 249, 0.22));
+}
+
+/* ============================================
+   MAIN NAVIGATION
+   ============================================ */
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(24px, 5vw, 54px);
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+
+  color: var(--muted);
+  text-decoration: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Animated underline */
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-violet)
+  );
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+  color: var(--text);
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 7px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   SOCIAL MEDIA LINKS
+   ============================================ */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 26px;
+
+  margin-top: 24px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  color: var(--muted);
+  text-decoration: none;
+
+  background: rgba(21, 29, 51, 0.65);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-links svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  background: rgba(103, 232, 249, 0.08);
+  border-color: rgba(103, 232, 249, 0.55);
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 8px 22px rgba(103, 232, 249, 0.08);
+}
+
+.social-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Special social icon styles */
+
+.social-x {
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.social-behance {
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.social-dribbble svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+}
+
+/* ============================================
+   MOBILE NAVIGATION BUTTON
+   ============================================ */
+
+.menu-toggle {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+
+  color: var(--text);
+  background: rgba(21, 29, 51, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--card-bg);
+  border-color: var(--accent);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+
+  background: var(--text);
+  border-radius: 4px;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Optional demo content */
+
+.demo-content {
+  display: none;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 600px) {
+  .site-header {
+    min-height: 0;
+    padding: 18px 20px 25px;
+  }
+
+  .brand {
+    width: 78px;
+    height: 70px;
+    margin-bottom: 18px;
+  }
+
+  .menu-toggle {
+    display: flex;
+
+    position: absolute;
+    top: 20px;
+    right: 18px;
+  }
+
+  .main-navigation {
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    width: 100%;
+    padding: 20px 0 5px;
+  }
+
+  .main-navigation.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: 21px;
+  }
+
+  .social-links {
+    gap: 17px;
+    margin-top: 22px;
+  }
+
+  .social-links a {
+    width: 39px;
+    height: 39px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

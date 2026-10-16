@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* =========================================
+   PORTFOLIO THEME
+   Deep Navy + Cyan + Violet
+   ========================================= */
+
+:root {
+  --page-bg: #0B1020;
+  --card-bg: #151D33;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --accent: #67E8F9;
+  --accent-violet: #A78BFA;
+  --border-color: rgba(148, 163, 184, 0.18);
+
+  --font-body: 'DM Sans', sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+}
+
+/* =========================================
+   GLOBAL STYLES
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(103, 232, 249, 0.25);
+  color: #FFFFFF;
+}
+
+/* Page content width */
+
+main {
+  width: min(1240px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+/* =========================================
+   SECTION SPACING
+   ========================================= */
+
+.about-section,
+.skills-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+}
+
+.skills-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 68px);
+
+  border-top: 1px solid var(--border-color);
+}
+
+/* =========================================
+   SECTION LABELS
+   ========================================= */
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0 0 22px;
+
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  flex-shrink: 0;
+
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-violet)
+  );
+}
+
+/* =========================================
+   MAIN HEADINGS
+   ========================================= */
+
+.section-heading {
+  margin-bottom: 44px;
+}
+
+h1,
+h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+h1 span,
+h2 span {
+  background: linear-gradient(
+    100deg,
+    var(--accent),
+    #91A7FF,
+    var(--accent-violet)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================
+   ABOUT SECTION
+   ========================================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 84px);
+  align-items: center;
+}
+
+/* Profile image */
+
+.portrait-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+  object-fit: cover;
+
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  background: var(--card-bg);
+  filter: grayscale(25%);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2);
+
+  transition:
+    filter 0.35s ease,
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.portrait-wrap:hover .portrait {
+  filter: grayscale(0%);
+  transform: translateY(-4px);
+  border-color: rgba(103, 232, 249, 0.4);
+}
+
+/* Profile caption */
+
+figcaption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 16px;
+
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: #6EE7B7;
+
+  box-shadow:
+    0 0 0 4px rgba(110, 231, 183, 0.1),
+    0 0 12px rgba(110, 231, 183, 0.3);
+}
+
+/* About text */
+
+.about-copy {
+  width: 100%;
+  max-width: 640px;
+}
+
+.about-copy p {
+  margin: 0 0 18px;
+
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-copy .intro {
+  color: var(--text-primary);
+
+  font-size: clamp(19px, 2vw, 23px);
+  line-height: 1.65;
+  letter-spacing: -0.02em;
+}
+
+/* =========================================
+   QUICK FACTS
+   ========================================= */
+
+.quick-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  margin-top: 32px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--border-color);
+}
+
+.quick-facts div {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.quick-facts strong {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.quick-facts span {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   SKILLS SECTION INTRODUCTION
+   ========================================= */
+
+.skills-intro {
+  min-width: 0;
+}
+
+.skills-intro h2 {
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.15;
+}
+
+.skills-description {
+  max-width: 440px;
+  margin: 24px 0;
+
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* =========================================
+   SKILL TAGS
+   ========================================= */
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 26px;
+}
+
+.skill-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 14px;
+
+  color: #DCE7F7;
+  background: linear-gradient(
+    145deg,
+    #151D33,
+    #10182B
+  );
+
+  border: 1px solid #34435E;
+  border-radius: 999px;
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-list span:hover {
+  color: var(--accent);
+  background: #1B2942;
+  border-color: rgba(103, 232, 249, 0.65);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 22px rgba(103, 232, 249, 0.07);
+}
+
+/* =========================================
+   TECHNOLOGY SPHERE LAYOUT
+   The 3D visual styles belong in speare.css.
+   Do not style .tech-node or .globe here.
+   ========================================= */
+
+.demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+}
+
+.constellation-wrap {
+  flex-shrink: 0;
+  width: min(100%, 560px);
+  min-width: 0;
+}
+
+/* =========================================
+   TABLET RESPONSIVE LAYOUT
+   ========================================= */
+
+@media (max-width: 900px) {
+  main {
+    width: min(720px, calc(100% - 48px));
+  }
+
+  .skills-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+  }
+
+  .skills-intro {
+    width: 100%;
+  }
+
+  .skills-description {
+    max-width: 580px;
+  }
+
+  .demo {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .constellation-wrap {
+    width: min(100%, 540px);
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE LAYOUT
+   ========================================= */
+
+@media (max-width: 600px) {
+  main {
+    width: calc(100% - 36px);
+  }
+
+  .about-section,
+  .skills-section {
+    padding: 52px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: clamp(37px, 10vw, 50px);
+  }
+
+  .skills-intro h2 {
+    font-size: clamp(32px, 8vw, 43px);
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .portrait-wrap {
+    width: min(100%, 330px);
+  }
+
+  .about-copy {
+    max-width: 100%;
+  }
+
+  .about-copy p {
+    font-size: 14px;
+  }
+
+  .about-copy .intro {
+    font-size: 19px;
+  }
+
+  .quick-facts {
+    gap: 10px;
+  }
+
+  .quick-facts strong {
+    font-size: 11px;
+  }
+
+  .quick-facts span {
+    font-size: 11px;
+  }
+
+  .skills-section {
+    gap: 30px;
+  }
+
+  .skills-description {
+    font-size: 13px;
+  }
+
+  .skill-list {
+    gap: 8px;
+  }
+
+  .skill-list span {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+
+  .demo {
+    padding: 8px 0 20px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

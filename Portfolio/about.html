@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>About Me | Portfolio</title>
+  <meta name="description" content="Learn about my computer science journey, skills, and technologies.">
+
+  <!-- CSS FILES -->
+  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="speare.css">
+  <link rel="stylesheet" href="header.css">
+  
+  <!-- JAVASCRIPT FILES -->
+  <script src="header-loader.js" defer></script>
+  <script src="speare.js" defer></script>
+</head>
+
+<body>
+
+ <div id="site-header"></div>
+
+  <!-- =========================================
+       MAIN PAGE CONTENT
+       ========================================= -->
+
+  <main>
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about-section" id="about">
+
+      <header class="section-heading">
+
+        <p class="eyebrow">A LITTLE ABOUT ME</p>
+
+        <h1>
+          Curious mind.<br>
+          <span>Creative builder.</span>
+        </h1>
+
+      </header>
+
+      <div class="about-grid">
+
+        <!-- PROFILE IMAGE -->
+
+        <figure class="portrait-wrap">
+
+          <img
+            class="portrait"
+            src="./dk.jpeg"
+            alt="My profile portrait">
+
+          <figcaption>
+            <i class="status-dot"></i>
+            Always learning, always building
+          </figcaption>
+
+        </figure>
+
+        <!-- ABOUT TEXT -->
+
+        <div class="about-copy">
+
+          <p class="intro">
+            Hello! I'm a computer science student who enjoys
+            turning ideas into useful, thoughtful digital experiences.
+          </p>
+
+          <p>
+            I like exploring how websites and software work—from
+            designing clean interfaces to writing the logic behind
+            them. I’m strengthening my foundations, learning new
+            technologies, and building projects that help me grow
+            as a developer.
+          </p>
+
+          <p>
+            I enjoy solving problems, experimenting with ideas,
+            and learning something new every day.
+          </p>
+
+          <!-- QUICK FACTS -->
+
+          <div class="quick-facts">
+
+            <div>
+              <strong>Focus</strong>
+              <span>Web development</span>
+            </div>
+
+            <div>
+              <strong>Mindset</strong>
+              <span>Learn by building</span>
+            </div>
+
+            <div>
+              <strong>Currently</strong>
+              <span>Growing my skills</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TECHNOLOGY SKILLS SECTION
+         ========================================= -->
+
+    <section class="skills-section" id="skills">
+
+      <!-- SKILLS INTRODUCTION -->
+
+      <div class="skills-intro">
+
+        <p class="eyebrow">MY TOOLKIT</p>
+
+        <h2>
+          Technologies I’m<br>
+          <span>exploring and using.</span>
+        </h2>
+
+        <p class="skills-description">
+          A growing collection of languages and tools I work with.
+          The technology sphere rotates slowly—drag it to explore,
+          or pause it with the control.
+        </p>
+
+        <!-- SKILLS TAGS -->
+
+        <div class="skill-list" aria-label="Technology list">
+
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>Advance Java</span>
+          <span>C</span>
+          <span>C++</span>
+          <span>PHP</span>
+          <span>MySQL</span>
+          <span>PostgreSQL</span>
+          <span>Github</span>
+          <span>C#</span>
+          <span>.NET</span>
+        </div>
+
+      </div>
+
+
+      <!-- =========================================
+           INTERACTIVE TECHNOLOGY SPHERE
+           ========================================= -->
+
+      <div class="demo">
+
+        <section
+          class="constellation-wrap"
+          aria-label="Interactive rotating technology sphere">
+
+          <!-- AMBIENT LIGHTS -->
+
+          <div class="ambient ambient-one"></div>
+          <div class="ambient ambient-two"></div>
+
+
+          <!-- ORBITAL RINGS -->
+
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+
+
+          <!--
+            JavaScript inserts all technology icons
+            inside this element.
+          -->
+
+          <div
+            class="constellation"
+            id="constellation"
+            aria-label="Technology icons">
+          </div>
+
+
+          <!-- CENTRAL DEVELOPER LOGO -->
+
+          <div class="center-core" aria-hidden="true">
+
+            <div class="core-halo"></div>
+
+            <div class="core-mark">
+              &lt;/&gt;
+            </div>
+
+            <span>DEVELOPER</span>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
